@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project Quiz</title>
+        <link rel="stylesheet" href="style.css"> 
+        <link rel="icon" href="images/logo.png">
+    </head>
+
+    <body>
+        <!-- header section for navigation -->
+        <header class="header">
+            <a href="context.html">Context</a>
+            <a href="index.html">Quiz</a>
+            <a href="themes.html">Themes</a>
+        </header>
+
+        <!-- content -->
+        <main class="quiz-wrapper">
+            <div id="quiz-container">
+                <div id="question-section">
+                    <h2 id="question-text">Question text goes here</h2>
+                    <div id="answer-buttons" class="btn-grid"></div>
+                </div>
+
+                <div id="result-section" class="hidden">
+                    <h2>You are:</h2>
+                    <h1 id="result-title">Theme Name</h1>
+                    <p id="result-desc">Description of the theme.</p>
+                    <button onclick="location.reload()" class="restart-btn">Retake Quiz</button>
+                    <br><br>
+                    <a href="themes.html" class="theme-link">Read more about all themes</a>
+                </div>
+            </div>
+        </main>
+        
+        <!-- footer section to provide class/name information -->
+        <footer class="footer">
+            <div class="footerText">
+                <h3>Final Project for 76-211</h3>
+                <p>&copy; Yeonji Baek</p>
+            </div>
+         </footer>
+
+         <script src="script.js"></script>
+    </body>
+</html>
