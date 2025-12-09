@@ -1,0 +1,395 @@
+/* quick access */
+:root{
+    --bg: #EED8C6;
+    --ani: #F2DADA;
+    --footer: #B71C1C; 
+    --head: #7a3b2e;
+    --text: #F5F5F5;
+}
+
+/* overall website setting */
+html, body {
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+
+/* -------------------- INDEX.HTML & OVERALL LAYOUT -------------------- */
+/* header format */
+.header{
+  width: 100%;
+  display: flex;
+  justify-content:space-evenly;
+  gap: 80px;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 80px;
+  padding-right: 80px;
+  background-color: var(--footer);
+}
+
+/* header text specifics */
+.header a{
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  transition: 0.1s;
+  color: var(--text);
+}
+
+/* header animation & line under text */
+.header a:hover{
+  color: var(--ani);
+  border-bottom: 2px dotted var(--ani);
+}
+
+/* main page content section */
+#start {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10vh; 
+
+    /* background image */
+    background-color: var(--bg);
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 75%;
+    background-blend-mode: screen;
+}
+
+/* title text specifics */
+#start h1 {
+    margin-bottom: 50px;
+    font-size: 2rem;
+    color: var(--head);
+    text-align: center;
+}
+
+/* instruction text specifics */
+.click-instruction {
+    font-size: 1rem; 
+    color: #333;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* start button image specifics */
+.start-character {
+    height: 50vh; 
+    width: auto;
+    transition: transform 0.2s ease;
+}
+
+.start-character:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* footer format */
+.footer{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  background-color: #B71C1C;
+  color: var(--text);
+}
+
+/* footer text specifics: headline */
+.footerText h3{
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+}
+
+/* footer text specifics: name */
+.footerText p{
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+
+/* -------------------- CONTEXT.HTML & OVERALL LAYOUT -------------------- */
+/* main page details */
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* image & text responsive specifics */
+.responsive-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* photo layout specifics */
+.photo-container {
+    flex-basis: 40%;
+    min-width: 300px;
+}
+
+/* text layout specifics */
+.text-container {
+    flex-basis: 60%;
+}
+
+/* image specifics */
+.photo-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* divider line for format */
+.divider {
+    width: 100%;
+    height: 2px;
+    border-top: 2px dotted var(--head); 
+    margin: 40px 0;
+}
+
+/* media query for screen responsive stacking */
+@media (max-width: 800px) {
+    .header {
+        padding: 15px 20px;
+        gap: 20px;
+    }
+    
+    .responsive-layout {
+        flex-direction: column; 
+    }
+    
+    .photo-container, .text-container {
+        flex-basis: 100%; 
+    }
+    
+    .photo-container {
+        margin-bottom: 10px;
+    }
+}
+
+
+/* -------------------- THEMES.HTML & OVERALL LAYOUT -------------------- */
+/* content area layout */
+.themes-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    padding-bottom: 100px; 
+    text-align: center;
+}
+
+/* title specifics */
+.page-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--footer);
+}
+
+/* subtitle specifics */
+.page-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* starting card grid layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px; 
+    justify-items: center;
+}
+
+/* each individual card specific */
+.card {
+    background-color: transparent;
+    width: 100%;
+    height: 550px; 
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+/* responsive media query for smaller screens */
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    /* made it shorter on mobile version */
+    .card {
+        height: 500px; 
+    }
+}
+
+/* creating a 3D box that holds the content */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* javascript to flip the card */
+.card.is-flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* applying together for unity */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--footer);
+}
+
+/* front side */
+.card-front {
+    background-color: #910f0f; 
+    color: var(--text);
+}
+
+/* back side */
+.card-back {
+    background-color: var(--footer);
+    color: var(--text);
+    transform: rotateY(180deg);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    
+    font-size: 0.95rem; 
+    line-height: 1.4; 
+    text-align: left;
+}
+
+/* small icon specifics */
+.card-icon {
+    width: 150px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+/* -------------------- QUIZ.HTML & OVERALL LAYOUT -------------------- */
+.quiz-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+/* puts all the question & answer choices in one box */
+#quiz-container {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+    border: 2px solid var(--footer);
+}
+
+/* text specifics for quiz question */
+#question-text {
+    font-size: 1.2rem;
+    color: var(--footer);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btn-grid {
+    display: grid;
+    gap: 15px;
+}
+
+/* displays answer choices */
+.btn {
+    background-color: var(--footer);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+}
+
+.btn:hover {
+    background-color: #8E1616;
+    transform: scale(1.02);
+}
+
+/* result specifics once user is done with quiz */
+.hidden {
+    display: none;
+}
+
+/* result title specifics */
+#result-title {
+    font-size: 2.5rem;
+    color: var(--footer);
+    margin: 10px 0;
+}
+
+/* result description specifics */
+#result-desc {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* restart quiz button */
+.restart-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+/* allows them to go to themes page */
+.theme-link {
+    color: var(--footer);
+    font-weight: bold;
+    text-decoration: underline;
+}
